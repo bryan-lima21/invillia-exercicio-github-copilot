@@ -74,6 +74,42 @@ activities = {
         "schedule": "Wednesdays, 3:30 PM - 4:30 PM",
         "max_participants": 12,
         "participants": ["ethan@mergington.edu", "logan@mergington.edu"]
+    },
+    "Swimming Team": {
+        "description": "Join the school swimming team and compete in swimming meets",
+        "schedule": "Mondays, Wednesdays, Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 20,
+        "participants": ["alex@mergington.edu", "chris@mergington.edu"]
+    },
+    "Tennis Club": {
+        "description": "Learn and practice tennis skills",
+        "schedule": "Tuesdays and Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 10,
+        "participants": ["jordan@mergington.edu", "casey@mergington.edu"]
+    },
+    "Photography Club": {
+        "description": "Learn photography techniques and participate in photo walks",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 15,
+        "participants": ["taylor@mergington.edu", "morgan@mergington.edu"]
+    },
+    "Music Band": {
+        "description": "Join the school band and practice music",
+        "schedule": "Fridays, 3:30 PM - 5:00 PM",
+        "max_participants": 25,
+        "participants": ["sam@mergington.edu", "alexis@mergington.edu"]
+    },
+    "Debate Club": {
+        "description": "Develop debating skills and participate in competitions",
+        "schedule": "Mondays, 3:30 PM - 5:00 PM",
+        "max_participants": 20,
+        "participants": ["riley@mergington.edu", "jordan@mergington.edu"]
+    },
+    "Robotics Club": {
+        "description": "Build and program robots for competitions",
+        "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+        "max_participants": 15,
+        "participants": ["casey@mergington.edu", "taylor@mergington.edu"]
     }
 }
 
@@ -97,6 +133,10 @@ def signup_for_activity(activity_name: str, email: str):
 
     # Get the specific activity
     activity = activities[activity_name]
+
+    # Ensure participants list is not reset
+    if "participants" not in activity:
+        activity["participants"] = []
 
     # Validate student is not already signed up
     if email in activity["participants"]:
